@@ -1,4 +1,4 @@
-## Blog Hub
+## Lugx Games Shop
 
 ![enter image description here](/static/images/lugx.png)
 
