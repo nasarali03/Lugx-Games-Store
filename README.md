@@ -1,4 +1,4 @@
-## Lugx Games Shop
+## Lugx Games Store
 
 ![enter image description here](/static/images/lugx.png)
 
