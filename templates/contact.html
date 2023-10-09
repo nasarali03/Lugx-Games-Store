@@ -1,0 +1,137 @@
+{%extends "base.html"%}
+{%block body%}
+
+<div class="page-heading header-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Contact Us</h3>
+        <span class="breadcrumb"><a href="#">Home</a> > Contact Us</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="contact-page section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 align-self-center">
+        <div class="left-text">
+          <div class="section-heading">
+            <h6>Contact Us</h6>
+            <h2>Say Hello!</h2>
+          </div>
+          <p>Experience enhanced gaming support by reaching out to us. We're here to ensuring your gaming questions are
+            answered and issues resolved. Your satisfaction is our priority, and we're committed to making your gaming
+            experience truly exceptional. Contact us today and let's level up your gaming adventure together.</p>
+          <ul>
+            <li><span>Address</span> Sectore H-8/2 Isamabad, Pakistan</li>
+            <li><span>Phone</span> +92 123 4567890</li>
+            <li><span>Email</span> lugx@contact.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="right-content">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="map">
+
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5351.729108782926!2d73.0635624!3d33.6837344!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2s!4v1691258097548!5m2!1sen!2s"
+                  width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div id="success-message" style="display: none;">Thanks for your feedback</div>
+              <form name="form" id="contact-form" action="/contact" method="post" style="display: block;">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <fieldset>
+                      <input type="name" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-6">
+                    <fieldset>
+                      <input type="surname" name="surname" id="surname" placeholder="Your Surname..." autocomplete="on"
+                        required>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-6">
+                    <fieldset>
+                      <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your E-mail..."
+                        required="">
+                      <div id="email-error" class="error-message" </div>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-6">
+                    <fieldset>
+                      <input type="subject" name="subject" id="subject" placeholder="Subject..." autocomplete="on">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="orange-button">Send Message Now</button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const form = document.getElementById("contact-form")
+  const emailError = document.getElementById("email-error");
+  const email = document.getElementById("email")
+  const message = document.getElementById("success-message")
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    // const email = document.getElementById("email").value;
+    // const password = document.getElementById("password").value;
+
+    const formData = new FormData(form);
+    try {
+      const response = await fetch('/contact', {
+        method: 'POST',
+        body: formData,
+      });
+      const responseData = await response.json();
+      if (responseData.result) {
+        //redirecting the user
+        window.location.href = '/signin';
+      } else {
+
+        emailError.textContent = responseData.error
+        email.focus();
+      }
+      if (responseData.success) {
+        form.style.display = "None"
+        message.style.display = "block"
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+  });
+
+  email.addEventListener("input", () => {
+    emailError.textContent = "";
+  });
+</script>
+
+
+
+
+{%endblock%}

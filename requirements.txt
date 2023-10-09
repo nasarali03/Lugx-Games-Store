@@ -1,0 +1,15 @@
+
+Flask==2.3.2
+Flask-Login==0.6.2
+Flask-PyMongo==2.3.0
+<<<<<<< HEAD
+pymongo==4.3.3
+Flask-SQLAlchem==3.1.1
+=======
+itsdangerous==2.1.2
+Jinja2==3.1.2
+SQLAlchemy==2.0.15
+
+
+
+>>>>>>> ec8c9b03163033c9fb0eb61dc82cc521d4c93526

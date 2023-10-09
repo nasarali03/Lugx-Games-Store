@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+  <title>Lugx Gaming Shop </title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="{{url_for ('static',filename='css/fontawesome.css')}}" />
+  <link rel="stylesheet" href="{{url_for ('static',filename='css/templatemo-lugx-gaming.css')}}" />
+  <link rel="stylesheet" href="{{url_for ('static',filename='css/owl.css')}}" />
+  <link rel="stylesheet" href="{{url_for ('static',filename='css/animate.css')}}" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <!--
+
+TemplateMo 589 lugx gaming
+
+https://templatemo.com/tm-589-lugx-gaming-->
+
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <a href="/" class="logo">
+              <img src="{{ url_for('static', filename='images/logo.png') }}" alt="" style="width: 158px" />
+            </a>
+
+            <ul class="nav">
+              <li><a href="/" class="active">Home</a></li>
+              <li><a href="/shop">Our Shop</a></li>
+              <li><a href="/products">Product Details</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+              {% if session['email'] %}
+              <!-- <li> -->
+              <div class="profile-dropdown">
+                <div class="menu-icon" id="profile-dropdown-toggle">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                </div>
+                <div class="profile-dropdown-content">
+                  <li> <a href="/dashboard">Profile</a></li>
+                  <li class="logou"><a href="/logout">Logout</a></li>
+                </div>
+              </div>
+              <!-- </li> -->
+              {% else %}
+              <li>
+                <a href="/signin">Sign In</a>
+              </li>
+              {% endif %}
+
+            </ul>
+            <a class="menu-trigger">
+              <span>Menu</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ... (Rest of the code) -->
+
+
+
+  <!-- ***** Header Area End ***** -->
+
+  {%block body%} {%endblock%}
+
+  <footer>
+    <div class="container">
+      <div class="col-lg-12">
+        <p>
+          Copyright © 2048 LUGX Gaming Company. All rights reserved.
+          &nbsp;&nbsp;
+          <a rel="nofollow" href="https://templatemo.com" target="_blank">Design: TemplateMo</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{url_for ('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{url_for ('static',filename='vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+
+  <script src="{{url_for ('static',filename='js/isotope.min.js')}}"></script>
+  <script src="{{url_for ('static',filename='js/owl-carousel.js')}}"></script>
+  <script src="{{url_for ('static',filename='js/counter.js')}}"></script>
+  <script src="{{url_for ('static',filename='js/custom.js')}}"></script>
+
+
+</body>
+
+</html>
