@@ -73,7 +73,7 @@ app2.py for mongodb database.
 
 For the database connection please read the documentation accordingly.
 
-The application should now be running locally. You can access it by opening a web browser and navigating to `http://localhost:5000`.
+The application should now be running locally. You can access it by opening a web browser and navigating to `http://127.0.0.1:5000`.
 
 Please note that you should replace `your-username` with your actual GitHub username or the repository URL, as needed. Additionally, make sure you have Python and Git installed on your system before following these steps.
 
